@@ -11,9 +11,21 @@
     <div class="container list-group">
         <div class="row col-md-2 list-group-item" ng-repeat="product in store.products">
             <h1> {{product.name }}</h1>
-            <h3><em class="pull-right">${{product.price}}</em></h3>
+            <h3><em class="pull-right">{{product.price | currency}}</em></h3>
             <p> {{product.description}}</p>
             <button type="button" name="button" ng-show="product.canPurchase">Add to Cart</button>
+
+            <!-- Image Gallery  -->
+            <div class="gallery">
+                <div class="img-wrap">
+                    <img ng-src="{{product.images[0]}}" />
+                </div>
+                <ul class="img-thumbnails clearfix">
+                    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images ">
+                        <img ng-src="{{image}}" />
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <script src="js/angular.min.js" charset="utf-8"></script>

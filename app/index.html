@@ -4,21 +4,48 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/master.css">
     <title></title>
 </head>
 
 <body ng-controller="StoreController as store">
     <div class="container list-group">
-        <div class="row col-md-2 list-group-item" ng-repeat="product in store.products">
+        <div class="row list-group-item" ng-repeat="product in store.products">
             <h1> {{product.name }}</h1>
-            <h3><em class="pull-right">{{product.price | currency}}</em></h3>
-            <p> {{product.description}}</p>
-            <button type="button" name="button" ng-show="product.canPurchase">Add to Cart</button>
+            <h3><em class=" pull-right ">{{product.price | currency}}</em></h3>
+
+            <section ng-controller="PanelController as panel">
+                <ul class="nav nav-pills">
+                    <li ng-class="{active:panel.isSelected(1)}"> <a href ng-click="panel.selectTab(1)">Description</a></li>
+                    <li ng-class="{active:panel.isSelected(2)}"> <a href ng-click="panel.selectTab(2)">Specifications</a></li>
+                    <li ng-class="{active:panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Reviews</a>
+                    </li>
+                </ul>
+                {{tab}}
+            </section>
+
+            <div class="panel" ng-show="panel.isSelected(1)">
+              <h4>Description</h4>
+              <p>{{product.description}}</p>
+            </div>
+            <div class="panel" ng-show="panel.isSelected(2)">
+              <h4>Specifications</h4>
+              <blockquote >Not Yet!
+              </blockquote>
+            </div>
+            <div class="panel" ng-show="panel.isSelected(3)">
+              <h4>Reviews</h4>
+              <blockquote >Not Yet!
+              </blockquote>
+            </div>
+
+
+            <!-- <button type="button " name="button " ng-show="product.canPurchase ">Add to Cart</button> -->
 
             <!-- Image Gallery  -->
-            <div class="gallery">
+            <div class="gallery " ng-show="product.images.length> 0">
                 <div class="img-wrap">
-                    <img ng-src="{{product.images[0]}}" />
+                    <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" />
                 </div>
                 <ul class="img-thumbnails clearfix">
                     <li class="small-image pull-left thumbnail" ng-repeat="image in product.images ">

@@ -1,0 +1,7 @@
+.img-thumbnails{
+  width: 200px;
+  display: inline-flex;
+}
+img{
+  width: 200px;
+}

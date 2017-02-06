@@ -4,6 +4,17 @@
         this.products = gems;
     });
 
+    app.controller("PanelController", function () {
+      this.tab = 1;
+
+      this.selectTab = function (setTab) {
+        this.tab = setTab;
+      };
+      this.isSelected = function (checkTab) {
+        return this.tab === checkTab;
+      };
+    });
+
 
     var gems = [{
        name: 'Azurite',
@@ -14,9 +25,9 @@
        color: '#CCC',
        faces: 14,
        images: [
-         "images/gem-02.gif",
-         "images/gem-05.gif",
-         "images/gem-09.gif"
+         "images/gem-01.png",
+         "images/gem-02.png",
+         "images/gem-03.png",
        ]
      }, {
        name: 'Bloodstone',
@@ -27,9 +38,9 @@
        color: '#EEE',
        faces: 12,
        images: [
-         "images/gem-01.gif",
-         "images/gem-03.gif",
-         "images/gem-04.gif"
+         "images/gem-05.png",
+         "images/gem-06.png",
+         "images/gem-07.png"
        ]
      }, {
        name: 'Zircon',
@@ -40,9 +51,9 @@
        color: '#000',
        faces: 6,
        images: [
-         "images/gem-06.gif",
-         "images/gem-07.gif",
-         "images/gem-10.gif"
+         "images/gem-08.png",
+         "images/gem-09.png",
+         "images/gem-10.png"
        ]
        }];
 

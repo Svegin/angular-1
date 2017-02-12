@@ -11,9 +11,6 @@
     });
   }]);
 
-
-
-
   app.controller('ReviewController', function() {
     this.review = {};
 
@@ -26,8 +23,11 @@
   });
 
 
+<<<<<<< HEAD
+=======
 
    
 
 
+>>>>>>> origin/master
 })();
